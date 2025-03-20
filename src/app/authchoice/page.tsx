@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function AuthChoicePage() {
   return (
-    <main className="pt-12 flex flex-col items-center">
+    <main className="pt-36 flex flex-col items-center">
       {/* TopMenu height is 50px */}
       <h1 className="text-2xl font-bold mb-4">Welcome to Jobfair</h1>
       <p className="text-gray-600 mb-8">Please choose an option to continue:</p>
