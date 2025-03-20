@@ -1,20 +1,32 @@
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/authOption";
-import { Link } from "@mui/material"
+'use client'
+import Link from "next/link";
+import { useSession } from "next-auth/react";
 
-export default async function TopMenu() {
-    const session = await getServerSession(authOptions);
+export default function TopMenu() {
+    const { data: session } = useSession()
     return (
-        <div className="fixed top-0 left-0 right-0 h-[50px] bg-white z-30 border-t border-b border-gray-300 flex items-center justify-end px-4 space-x-4">
-            {
-                    session ?
-                    <Link href="/api/auth/signout" className="ml-4 px-3 py-1 h-[36px] flex items-center hover:bg-gray-100 transition">
-                        <div>Sign Out</div>
-                    </Link> :
-                    <Link href="/api/auth/signin" className="ml-4 px-3 py-1 h-[36px] flex items-center hover:bg-gray-100 transition">
-                        <div>Sign-In</div>
+        <div className="fixed top-0 left-0 right-0 h-[50px] bg-white z-30 border-t border-b border-gray-300 flex items-center justify-between px-4">
+            <div className="flex items-center space-x-4">
+                <span className="font-bold text-xl text-blue-500">JOB</span>
+                <Link href="/" className="px-3 py-1 flex items-center hover:bg-gray-100 transition">
+                    Home
+                </Link>
+                <Link href="/reservation" className="px-3 py-1 flex items-center hover:bg-gray-100 transition">
+                    Reservation
+                </Link>
+            </div>
+            <div className="flex items-center">
+                {session ?
+                    <Link href="/profile" className="ml-4 px-3 py-1 flex items-center hover:bg-gray-100 transition">
+                        {session.user.data.name}
                     </Link>
-            }
+                 : 
+                    
+                    <Link href="/authchoice" className="ml-4 px-3 py-1 flex items-center hover:bg-gray-100 transition">
+                        Sign-In {session}
+                    </Link>
+                }
+            </div>
         </div>
     );
 }

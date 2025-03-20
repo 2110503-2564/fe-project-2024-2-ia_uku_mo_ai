@@ -1,5 +1,5 @@
 export default async function getMe(token : string) {
-    const response = await fetch('https://backenddev-project.onrender.com/api/v1/auth/me', {
+    const response = await fetch(`https://backenddev-project.onrender.com/api/v1/auth/me`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
