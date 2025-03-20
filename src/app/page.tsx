@@ -1,10 +1,12 @@
-import Banner from "@/components/Banner";
+import Banner from "@/components/Banner"
+import DetailSection from "@/components/DetailSection";
 
 export default function HomePage() {
   return (
     <main className="pt-12">
       {/* TopMenu height is 50px */}
-      <Banner />
+      <Banner/>
+      <DetailSection/>
       <section className="text-center mt-5 text-gray-800">
         <h2 className="text-3xl font-bold">Welcome to Our Platform</h2>
         <p className="text-base leading-7 max-w-2xl mx-auto mt-2">

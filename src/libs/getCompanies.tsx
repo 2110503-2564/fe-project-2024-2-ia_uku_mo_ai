@@ -1,6 +1,5 @@
 export default async function getCompanies() {
-    const URL = process.env.REACT_APP_API_BASE_URL;
-    const response = await fetch(`${URL}/companies`, {
+    const response = await fetch('https://backenddev-project.onrender.com/api/v1/companies', {
         method : 'GET',
         headers: {
             'Content-Type' : 'application/json'
