@@ -1,4 +1,4 @@
-export default async function getReservation(token : string){
+export default async function getBooking(token : string){
     const response = await fetch('https://backenddev-project.onrender.com/api/v1/bookings',{
         method: 'GET',
         headers : {

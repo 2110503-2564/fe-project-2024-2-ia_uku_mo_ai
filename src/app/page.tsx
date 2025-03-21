@@ -4,7 +4,6 @@ import DetailSection from "@/components/DetailSection";
 export default function HomePage() {
   return (
     <main className="pt-12">
-      {/* TopMenu height is 50px */}
       <Banner/>
       <DetailSection/>
       <section className="text-center mt-5 text-gray-800">

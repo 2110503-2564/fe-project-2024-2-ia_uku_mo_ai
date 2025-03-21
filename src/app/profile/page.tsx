@@ -1,12 +1,11 @@
-'use client'
-import { useSession } from "next-auth/react";
+import { getServerSession } from 'next-auth';
+import BookingPage from '../booking/page';
+import { authOptions } from '../api/auth/[...nextauth]/authOption';
 
-export default function ProfilePage() {
-  const { data: session } = useSession();
-
+export default async function ProfilePage() {
+  const session = await getServerSession(authOptions);
   return (
-    <main className="pt-12">
-      {/* TopMenu height is 50px */}
+    <main className="pt-24">
       <div className="text-center">
         <h1 className="text-4xl font-extrabold mb-6">Profile</h1>
         {session ? (
@@ -25,6 +24,7 @@ export default function ProfilePage() {
           <p className="text-lg text-gray-500">You are not signed in</p>
         )}
       </div>
+      <BookingPage/>
     </main>
   );
 }

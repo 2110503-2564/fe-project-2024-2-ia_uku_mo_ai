@@ -1,12 +1,8 @@
-'use client';
-
 export default async function addBookingDB(date: string, companyId: string, token: string) {
     
     if (!token) {
         throw new Error('Authentication token not found');
     }
-    alert(token);
-
     const response = await fetch(`https://backenddev-project.onrender.com/api/v1/companies/${companyId}/bookings`, {
         method: 'POST',
         headers: {
@@ -18,9 +14,13 @@ export default async function addBookingDB(date: string, companyId: string, toke
         }),
     });
 
+    const data = await response.json(); // Await the JSON response
+
     if (!response.ok) {
-        throw new Error('Booking failed');
+        //console.log(data.message); // Access the error message
+        alert(data.message || 'Failed to add booking');
+        //return response.json();
     }
 
-    return response.json();
+    return data;
 }

@@ -7,7 +7,7 @@ export interface Company {
     tel: string;
 }
 
-export interface Reservation {
+export interface Booking {
     _id: string;
     bookingDate: string; 
     user: string; 
