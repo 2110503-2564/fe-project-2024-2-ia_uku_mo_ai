@@ -5,10 +5,12 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 import { Dayjs } from "dayjs"
 import { useState } from "react"
 import addBookingDB from "@/libs/addBookingDB"
-import { cookies } from "next/headers"
+import { useSession } from "next-auth/react"
 
 export default function DateReserve({ cid }: { cid: string }) {
-    const token = null;
+    
+    const { data: session } = useSession();
+    const token = session.user.token;
     const [bookDate, setBookDate] = useState<Dayjs | null>(null);
     return (
         <div>
@@ -20,7 +22,7 @@ export default function DateReserve({ cid }: { cid: string }) {
             </LocalizationProvider>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 onClick={() => {
-                    addBookingDB(bookDate?.format('YYYY-MM-DD') ?? '', cid, `${token}`);
+                    addBookingDB(bookDate?.format('YYYY-MM-DD') ?? '', cid, token);
                     alert(`You have booked on ${bookDate?.format('YYYY-MM-DD')}`);
                 }}
             >

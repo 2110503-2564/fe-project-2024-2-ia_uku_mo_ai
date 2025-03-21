@@ -1,5 +1,6 @@
 'use client'
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function ProfilePage() {
   const { data: session } = useSession();
@@ -20,6 +21,12 @@ export default function ProfilePage() {
             <p className="text-lg text-gray-700">
               <span className="font-semibold">Tel:</span> {session.user.data.tel}
             </p>
+            <Link
+              href="/api/auth/signout"
+              className="mt-4 inline-block px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            >
+              Sign Out
+            </Link>
           </div>
         ) : (
           <p className="text-lg text-gray-500">You are not signed in</p>

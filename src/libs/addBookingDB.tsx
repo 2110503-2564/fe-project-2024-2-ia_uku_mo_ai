@@ -2,10 +2,11 @@
 
 export default async function addBookingDB(date: string, companyId: string, token: string) {
     
+    // alert("-> " + token);
     if (!token) {
         throw new Error('Authentication token not found');
     }
-    alert(token);
+    
 
     const response = await fetch(`https://backenddev-project.onrender.com/api/v1/companies/${companyId}/bookings`, {
         method: 'POST',
