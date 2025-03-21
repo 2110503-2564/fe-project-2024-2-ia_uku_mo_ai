@@ -6,3 +6,9 @@ export interface Company {
     description: string;
     tel: string;
 }
+
+export interface BookingItem {
+    bookingDate: string;
+    user: string;//objectID mongo
+    company: string;//objectID mongo
+  }

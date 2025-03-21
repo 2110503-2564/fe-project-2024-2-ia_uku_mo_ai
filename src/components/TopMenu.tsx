@@ -11,7 +11,7 @@ export default function TopMenu() {
                 <Link href="/" className="px-3 py-1 flex items-center hover:bg-gray-100 transition">
                     Home
                 </Link>
-                <Link href="/reservation" className="px-3 py-1 flex items-center hover:bg-gray-100 transition">
+                <Link href="/booking" className="px-3 py-1 flex items-center hover:bg-gray-100 transition">
                     Reservation
                 </Link>
                 <Link href="/company" className="px-3 py-1 flex items-center hover:bg-gray-100 transition">
