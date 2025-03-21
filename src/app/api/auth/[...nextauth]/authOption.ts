@@ -16,7 +16,7 @@ export const authOptions: AuthOptions = {
             const user = await userLogIn(credentials.email, credentials.password);
             if (user) {
               const res = await getMe(user.token);
-              if(res) return res;
+              if(res) return { ...res, token: user.token };
             } else {
               throw new Error("Invalid login");
             }

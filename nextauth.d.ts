@@ -1,4 +1,3 @@
-// types/nextauth.d.ts
 import NextAuth from "next-auth";
 import { DefaultSession } from "next-auth";
 
@@ -12,7 +11,8 @@ declare module "next-auth" {
       role: string;
       createdAt: string;
       __v: number;
-    };
+    },
+    token: string;
   }
 
   interface Session {

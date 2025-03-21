@@ -36,9 +36,10 @@ export default function ChoicePage() {
   };
 
   return (
-    <main className="pt-12">
-      {/* TopMenu height is 50px */}
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto">
+    <main className="pt-24 flex flex-col items-center bg-gray-100 h-screen">
+      <div className="bg-white rounded w-1/4 shadow-lg">
+        <h1 className="p-2 pt-6 text-center">Registration Form</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4">
         <input
           type="text"
           name="name"
@@ -75,10 +76,12 @@ export default function ChoicePage() {
           className="border p-2 rounded"
           required
         />
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+        <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700">
           Register
         </button>
       </form>
+      </div>
+      
     </main>
   );
 }

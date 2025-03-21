@@ -31,3 +31,16 @@
     text-wrap: balance;
   }
 }
+
+.table {
+  @apply w-1/2 border-collapse border border-gray-300;
+}
+.row {
+  @apply border border-gray-300;
+}
+.cell {
+  @apply p-2 border border-gray-300;
+}
+.Headcell {
+  @apply p-2 border border-gray-300;
+}
