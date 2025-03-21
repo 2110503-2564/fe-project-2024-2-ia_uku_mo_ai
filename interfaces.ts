@@ -16,3 +16,9 @@ export interface Reservation {
     __v: number;
   }
   
+export interface BookingItem {
+    bookingDate: string;
+    user: string;//objectID mongo
+    company: string;//objectID mongo
+  }
+
