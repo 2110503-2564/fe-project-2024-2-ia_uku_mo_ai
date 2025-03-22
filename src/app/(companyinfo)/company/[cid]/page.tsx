@@ -1,8 +1,11 @@
 import Image from "next/image";
 import getCompany from "@/libs/getCompany";
 import DateReserve from "@/components/DateReserve";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOption";
 
 export default async function CompanyPage({ params }: { params: { cid: string } }) {
+  const session = await getServerSession(authOptions);
   const companyDetail = await getCompany(params);
   return (
     <main className="text-center p-10">
@@ -24,7 +27,14 @@ export default async function CompanyPage({ params }: { params: { cid: string } 
           <p>Description: {companyDetail.data.description}</p>
           <p>Tel: {companyDetail.data.tel}</p><br></br>
           <p className="font-semibold text-lg">Make Your Booking Here!</p>
-          <DateReserve cid={companyDetail.data.id}/>
+          {
+            session ? (
+              <DateReserve cid={companyDetail.data.id}/>
+            ) : (
+              <p className="text-lg text-gray-500">Please Sign in to Booking Interview Session</p>
+            )
+          }
+          
         </div>
       </div>
     </main>
