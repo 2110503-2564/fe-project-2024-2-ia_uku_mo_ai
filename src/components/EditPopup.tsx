@@ -19,14 +19,6 @@ export default function EditPopup({ booking, onClose }: EditPopupProps) {
         company: booking.company.map((comp: { name: string }) => comp.name).join(', ')
     });
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    };
-
     const { data: session } = useSession();
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -45,7 +37,7 @@ export default function EditPopup({ booking, onClose }: EditPopupProps) {
             <div className="bg-white p-6 rounded-lg shadow-lg w-96 max-w-full">
                 <h2 className="text-xl font-semibold mb-4">Edit booking</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
+                    <div className='w-full'>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                             Booking Date
                         </label>
@@ -56,21 +48,6 @@ export default function EditPopup({ booking, onClose }: EditPopupProps) {
                           />
                         </LocalizationProvider>
                     </div>
-                    <div className="mb-4">
-                        <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-                            Company
-                        </label>
-                        <input
-                            type="text"
-                            id="company"
-                            name="company"
-                            value={formData.company}
-                            onChange={handleInputChange}
-                            className="w-full p-2 border border-gray-300 rounded-md"
-                            required
-                        />
-                    </div>
-                    
                     <div className="flex justify-end space-x-2 mt-6">
                         <button
                             type="button"
