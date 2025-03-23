@@ -3,8 +3,13 @@ import getCompany from "@/libs/getCompany";
 import DateReserve from "@/components/DateReserve";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOption";
+import Link from "next/link";
 
-export default async function CompanyPage({ params }: { params: { cid: string } }) {
+export default async function CompanyPage({
+  params,
+}: {
+  params: { cid: string };
+}) {
   const session = await getServerSession(authOptions);
   const companyDetail = await getCompany(params);
   return (
@@ -25,16 +30,19 @@ export default async function CompanyPage({ params }: { params: { cid: string } 
           <p>Address: {companyDetail.data.address}</p>
           <p>Website: {companyDetail.data.website}</p>
           <p>Description: {companyDetail.data.description}</p>
-          <p>Tel: {companyDetail.data.tel}</p><br></br>
+          <p>Tel: {companyDetail.data.tel}</p>
+          <br></br>
           <p className="font-semibold text-lg">Make Your Booking Here!</p>
-          {
-            session ? (
-              <DateReserve cid={companyDetail.data.id}/>
-            ) : (
-              <p className="text-lg text-gray-500">Please Sign in to Booking Interview Session</p>
-            )
-          }
-          
+          {session ? (
+            <DateReserve cid={companyDetail.data.id} />
+          ) : (
+            <Link
+              href={"/authchoice"}
+              className="text-lg text-gray-500 hover:text-gray-700"
+            >
+              Please Sign in to Booking Interview Session
+            </Link>
+          )}
         </div>
       </div>
     </main>

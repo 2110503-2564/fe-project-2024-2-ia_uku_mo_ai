@@ -5,13 +5,15 @@ import getBooking from "@/libs/getBooking";
 
 export default async function BookingPage() {
   const session = await getServerSession(authOptions);
-  const token = session?.user?.token || '';
+  const token = session?.user?.token || "";
   const response = await getBooking(token);
   return (
     <main className="pt-24 flex flex-col items-center">
-      <h1 className='text-lg font-bold'>{session?.user.data.name} Interview Booking</h1>
-      <h2 className='text-md text-gray-600'>Reserved Interview Session</h2>
-      <BookingTable response={response}/>
+      <h1 className="text-lg font-bold">
+        {session?.user.data.name} Interview Booking
+      </h1>
+      <h2 className="text-md text-gray-600">Reserved Interview Session</h2>
+      <BookingTable response={response} />
     </main>
   );
 }
