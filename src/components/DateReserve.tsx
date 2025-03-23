@@ -23,7 +23,12 @@ export default function DateReserve({ cid }: { cid: string }) {
                 <DatePicker value={bookDate}
                     onChange={(value) => {
                         setBookDate(value);
-                    }} />
+                    }} 
+                    shouldDisableDate={(date) => {
+                        const formattedDate = date.format('YYYY-MM-DD');
+                        return !["2022-05-10", "2022-05-11", "2022-05-12", "2022-05-13"].includes(formattedDate);
+                    }}
+                />
             </LocalizationProvider>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2"
                 onClick={() => {

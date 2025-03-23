@@ -45,6 +45,10 @@ export default function EditPopup({ booking, onClose }: EditPopupProps) {
                           <DatePicker 
                             value={formData.bookingDate} 
                             onChange={(date) => setFormData({ ...formData, bookingDate:dayjs(date) })} 
+                            shouldDisableDate={(date) => {
+                                const formattedDate = date.format('YYYY-MM-DD');
+                                return !["2022-05-10", "2022-05-11", "2022-05-12", "2022-05-13"].includes(formattedDate);
+                            }}
                           />
                         </LocalizationProvider>
                     </div>
