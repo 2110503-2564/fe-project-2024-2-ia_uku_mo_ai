@@ -1,6 +1,7 @@
 export default async function deleteBooking({bookingId, token} : {bookingId: string, token: string}) {
     if (!token) {
-        throw new Error('Authentication token not found');
+        alert('Authentication token not found');
+        return;
     }
     const response = await fetch(`https://backenddev-project.onrender.com/api/v1/bookings/${bookingId}`, {
         method: 'DELETE',
@@ -10,7 +11,8 @@ export default async function deleteBooking({bookingId, token} : {bookingId: str
         },
     })
     if (!response.ok) {
-        throw new Error('Delete failed');
+        return response.json();
+        //throw new Error('Delete failed');
     }
     return response.json();
 }
