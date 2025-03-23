@@ -13,11 +13,8 @@ export default async function userRegister(userName: string, userTel: string, us
         }),
     });
     if(response.status === 400) {
-        alert('email or name already exists')
-        // throw new Error('Register failed');
-    }
-    if (!response.ok) {
-        // throw new Error('Register failed');
+        alert('email,name or telephone number already exists')
+        return response.json();
     }
     alert("register success")
     return response.json();
