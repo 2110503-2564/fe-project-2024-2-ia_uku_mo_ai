@@ -9,8 +9,7 @@ export default function TopMenu() {
             <div className="flex items-center space-x-4">
                 <span className="font-bold text-xl text-blue-500">JOB</span>
                 <TopMenuItem pageRef="/" title="Home" />
-                <TopMenuItem pageRef="/booking" title="Booking" />
-                <TopMenuItem pageRef="/company" title="Company" />
+                <TopMenuItem pageRef="/company" title="Booking/Company" />
             </div>
             <div className="flex items-center">
                 {session ?

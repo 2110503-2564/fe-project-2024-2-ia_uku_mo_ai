@@ -1,5 +1,5 @@
+import BookingList from '@/components/BookingList';
 import { getServerSession } from 'next-auth';
-import BookingPage from '../booking/page';
 import { authOptions } from '../api/auth/[...nextauth]/authOption';
 
 export default async function ProfilePage() {
@@ -24,7 +24,7 @@ export default async function ProfilePage() {
           <p className="text-lg text-gray-500">You are not signed in</p>
         )}
       </div>
-      <BookingPage/>
+      <BookingList/>
     </main>
   );
 }

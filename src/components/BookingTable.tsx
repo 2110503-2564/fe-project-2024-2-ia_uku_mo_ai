@@ -73,9 +73,6 @@ export default function BookingTable({ response }: { response: any }) {
                 </tbody>
             </table>
 
-            <button className="absolute top-20 right-10 rounded-lg bg-blue-500 text-white hover:bg-blue-700 p-2 mt-4" onClick={() => console.log(response)}>
-                Log Response
-            </button>
             {showEditPopup && selectedBooking && (
                 <EditPopup 
                     booking={selectedBooking} 

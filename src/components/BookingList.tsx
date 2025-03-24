@@ -1,9 +1,9 @@
 import BookingTable from "@/components/BookingTable";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/authOption";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOption";
 import getBooking from "@/libs/getBooking";
 
-export default async function BookingPage() {
+export default async function BookingList() {
   const session = await getServerSession(authOptions);
   const token = session?.user?.token || "";
   const response = await getBooking(token);
