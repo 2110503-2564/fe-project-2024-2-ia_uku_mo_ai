@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import requestPasswordReset from "@/libs/requestPasswordReset";
 
-export default function resetPasswordPage() {
+export default function ResetPasswordPage() {
   const [email, setEmail] = useState("");
   const router = useRouter();
 
@@ -12,7 +12,7 @@ export default function resetPasswordPage() {
     e.preventDefault();
     // Placeholder for reset password logic
     requestPasswordReset(email);
-    alert("Email has been sent to " +  email);
+    alert("Email has bee      n sent to " +  email);
     // Optionally navigate to another page
     // router.push("/some-page");
   };
