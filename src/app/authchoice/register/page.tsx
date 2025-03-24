@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import userRegister from "@/libs/userRegister";
-import RegistrationFrom from "@/components/RegistrationFrom";
 
 export default function ChoicePage() {
   const [formData, setFormData] = useState({
