@@ -17,6 +17,7 @@
     "cookie-cutter": "^0.2.0",
     "dayjs": "^1.11.13",
     "dotenv": "^16.4.7",
+    "mongoose": "^7.6.3",
     "next": "14.2.5",
     "next-auth": "^4.24.8",
     "react": "^18",

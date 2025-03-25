@@ -13,8 +13,7 @@ export default function TopMenu() {
         </Link>
 
         <TopMenuItem pageRef="/" title="Home" />
-        <TopMenuItem pageRef="/booking" title="Booking" />
-        <TopMenuItem pageRef="/company" title="Company" />
+        <TopMenuItem pageRef="/company" title="Booking/Company" />
       </div>
       <div className="flex items-center">
         {session ? (
